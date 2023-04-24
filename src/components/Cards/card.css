@@ -1,0 +1,70 @@
+.card {
+    min-width: 280px;
+    height: fit-content;
+    background-color: #ebecf0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.cardTitleButton {
+    border: 0px;
+    color: grey;
+    font-size: 20px;
+    height: fit-content;
+    vertical-align: middle;
+    border-radius: 5px;
+    transition: all .3s linear;
+
+}
+
+.cardTitleButton:hover {
+    background-color: #d7d8da;
+    cursor: pointer;
+
+}
+
+.cardAdd {
+    padding: 5px;
+    margin-top: 15px;
+    text-align: center;
+    color: grey;
+    transition: all .3s linear;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.cardAdd:hover {
+    background-color: #d7d8da;
+
+}
+
+.cardAdd::before {
+    content: "+";
+    position: relative;
+    left: -10px;
+    font-size: 20px;
+
+}
+.task{
+    background-color: #fdfeff;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all .3s linear;
+}
+.task:hover{
+    background-color: #dfdfe0;
+}
+.dragged{
+    transform: rotateX('30');
+    cursor: pointer;
+    background-color: blue;
+}
