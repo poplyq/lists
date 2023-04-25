@@ -1,34 +1,31 @@
-.addCards{
-    min-width: 250px;
-    height: fit-content;
-    background-color: #ebecf0;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.addCards {
+  min-width: 250px;
+  height: fit-content;
+  background-color: #ebecf0;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.addCardsInput{
-width: 94%;
-font-size: 15px;
-padding: 6px;
-
+.addCardsInput {
+  width: 94%;
+  font-size: 15px;
+  padding: 6px;
 }
-.addCardsBlock{
-
+.addCardsBlock {
 }
-.addCardsButton{
-    background-color: rgb(0, 121, 191);
-    margin-top: 10px;
-    height: 35px;
-    border: 0px;
-    border-radius: 5px;
-    color: aliceblue;
-    font-size: 15px;
-
+.addCardsButton {
+  background-color: rgb(0, 121, 191);
+  margin-top: 10px;
+  height: 35px;
+  border: 0px;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: 15px;
 }
-.addCardsClose{
-    border: 0;
-    font-size: 30px;
-    position: relative;
-    top: 5px;
-    left: 5px;
+.addCardsClose {
+  border: 0;
+  font-size: 30px;
+  position: relative;
+  top: 5px;
+  left: 5px;
 }

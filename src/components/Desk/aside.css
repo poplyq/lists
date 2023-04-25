@@ -1,74 +1,66 @@
-.aside{
-    background-color:rgb(0, 121, 191);
- width: 250px;
- height: 93vh ;
- color: aliceblue;
- 
+.aside {
+  background-color: rgb(0, 121, 191);
+  width: 250px;
+  height: 93vh;
+  color: aliceblue;
+}
+.asideTitleblock {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 0.3px aliceblue solid;
+}
+.asideIcon {
+  width: 20px;
+  filter: invert(100%);
+}
+.asideImage {
+}
+.asideTitle {
+  font-size: 15px;
+  font-weight: 700;
 
+  width: 50%;
 }
-.asideTitleblock{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
- border: 0.3px aliceblue solid;
+.asideButton {
+  width: 30px;
+  height: 30px;
+  color: aliceblue;
+  font-size: 23px;
+  font-weight: 700;
+  background-color: rgb(0, 121, 191);
+  border: 1px rgb(0, 121, 191) solid;
+  border-radius: 5px;
+  transition: all 0.2s linear;
 }
-.asideIcon{
-    width: 20px;
-    filter: invert(100%);}
-.asideImage{
+.asideButton:hover {
+  background-color: rgb(88, 160, 202);
+  border-color: rgb(88, 160, 202);
+}
+.asideSubtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 30px;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.asideBlock {
+  padding: 5px;
+}
+.asideBlockElement {
+  display: flex;
+  padding: 10px;
+  text-align: center;
 
-
+  font-size: 15px;
+  font-weight: 500;
 }
-.asideTitle{
-    font-size: 15px;
-    font-weight: 700;
-
-    width: 50%;
-
+.asideBlockElement p {
+  margin-left: 15px;
 }
-.asideButton{
-    width: 30px;
-    height: 30px;
-    color: aliceblue;
-    font-size: 23px;
-    font-weight: 700;
-    background-color: rgb(0, 121, 191);
-    border: 1px rgb(0, 121, 191) solid;
-    border-radius: 5px;
-    transition: all 0.2s linear;
-
-}
-.asideButton:hover{
-    background-color: rgb(88, 160, 202);
-    border-color: rgb(88, 160, 202);
-}
-.asideSubtitle{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 30px;
-    white-space: nowrap;
-    font-size: 15px;
-    font-weight: 700;
-    margin-top: 15px;
-}
-.asideBlock{
-    padding: 5px;
-
-
-}
-.asideBlockElement{
-    display: flex;
-    padding: 10px;
-    text-align: center;
- 
-    font-size: 15px;
-    font-weight: 500;
-
-}
-.asideBlockElement p{
-    margin-left: 15px;
-}
-.asideBlockElement:hover{
-    background-color: rgb(88, 160, 202);
-    cursor: pointer;
+.asideBlockElement:hover {
+  background-color: rgb(88, 160, 202);
+  cursor: pointer;
 }
