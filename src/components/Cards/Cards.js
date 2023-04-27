@@ -25,7 +25,7 @@ export function Cards() {
     <div className="cards">
       {arrayOfCards.map((element, index) => (
         <div key={element.name}>
-          <Card
+          <Card 
             cardIndex={index}
             cardTitle=<p>{element.name}</p>
             listOfTasks={arrayOfTasks[index]}

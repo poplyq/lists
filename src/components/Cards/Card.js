@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react';
 import './card.css';
 import { cardsContext } from '../Desk/cardsContext';
 import { AddTask } from './AddTask';
-import PropTypes from 'prop-types';
-import { changeCards } from '../functions/functions';
+import { changeArray, changeCards } from '../functions/functions';
 
 export function Card(props) {
   const { listOfTasks, cardIndex, cardTitle } = props;
@@ -18,73 +17,61 @@ export function Card(props) {
     setDraged,
     board,
     setBoard,
+    dragClass,
+    setDragClass,
   } = useContext(cardsContext);
+
   const dragStart = (e, i, iboard) => {
+    setDragClass(e.classList[0]);
     setDraged(i);
     setIsDrag(true);
     setBoard(iboard);
   };
-  const dragEnd = () => {};
-
   const dragOver = (e, i) => {
     e.preventDefault();
     setCoverd(i);
     const curObj = arrayOfCards[cardIndex];
-    if (dragElement !== i) {
-      if (isDrag) {
-        if (dragElement > i) {
 
-          const newObj = {
-            index: cardIndex,
-            name: curObj.name,
-            tasks: changeCards(dragElement, i, curObj.tasks),
-          };
-          setArrayofCards((prev) => [
-            ...prev.slice(0, cardIndex),
-            newObj,
-            ...prev.slice(cardIndex + 1),
-          ]);
-        } else if (dragElement < i) {
-          const newObj = {
-            index: cardIndex,
-            name: curObj.name,
-            tasks: changeCards(dragElement, i, curObj.tasks),
-          };
-          setArrayofCards((prev) => [
-            ...prev.slice(0, cardIndex),
-            newObj,
-            ...prev.slice(cardIndex + 1),
-          ]);
-        }
+    if (dragElement !== i && dragClass == 'task') {
+      if (isDrag) {
+        const newObj = {
+          index: cardIndex,
+          name: curObj.name,
+          tasks: changeCards(dragElement, i, curObj.tasks),
+        };
+        setArrayofCards((prev) => [
+          ...prev.slice(0, cardIndex),
+          newObj,
+          ...prev.slice(cardIndex + 1),
+        ]);
         setIsDrag(false);
       }
     }
-  };
-  const dragStop = (e) => {
-    e.preventDefault();
   };
   const dragLeave = () => {
     setDraged(coverdElement);
     setIsDrag(true);
   };
-  const LeaveCard = () => {};
-
-  const addCard = (i) => {
+  const dragCard = (e, i) => {
+    setDragClass(e.classList[0]);
     setBoard(i);
-    const curObj = arrayOfCards[i];
-    const newtask = [...curObj.tasks, prevObj.tasks[dragElement]];
-    let prevtask = [];
-    if (board < i) {
+  };
+  const addCard = (e, i) => {
+    e.preventDefault();
+    setBoard(i);
+    if (dragClass == 'card' && board !== i) {
+      setArrayofCards(changeArray(arrayOfCards, 0, 0, i, board));
+    } else if (board !== i && Number.isInteger(board) && dragClass == 'task') {
       setIsDrag(true);
-      const prevObj = arrayOfCards[i - 1];
-      if (dragElement) {
-        prevtask = [
-          ...prevObj.tasks.slice(0, dragElement - 1),
-          ...prevObj.tasks.slice(dragElement),
-        ];
-      } else {
-        prevtask = [...prevObj.tasks.slice(dragElement + 1)];
-      }
+      const curObj = arrayOfCards[i];
+      let prevObj = board < i ? arrayOfCards[i - 1] : arrayOfCards[i + 1];
+      let newtask = [...curObj.tasks, prevObj.tasks[dragElement]];
+      let prevtask = dragElement
+        ? [
+            ...prevObj.tasks.slice(0, dragElement),
+            ...prevObj.tasks.slice(dragElement + 1),
+          ]
+        : [...prevObj.tasks.slice(dragElement + 1)];
       const newObj = {
         index: i,
         name: curObj.name,
@@ -96,48 +83,21 @@ export function Card(props) {
         tasks: prevtask,
       };
       setDraged(newtask.length - 1);
-      setArrayofCards((prev) => [
-        ...prev.slice(0, i - 1),
-        preNewObj,
-        newObj,
-        ...prev.slice(i + 1),
-      ]);
-    } else if (board > i) {
-      setIsDrag(true);
-      const prevObj = arrayOfCards[i + 1];
-      if (dragElement) {
-        prevtask = [
-          ...prevObj.tasks.slice(0, dragElement),
-          ...prevObj.tasks.slice(dragElement + 1),
-        ];
-      } else {
-        prevtask = [...prevObj.tasks.slice(dragElement + 1)];
-      }
-
-      const newObj = {
-        index: i,
-        name: curObj.name,
-        tasks: newtask,
-      };
-      const preNewObj = {
-        index: i - 1,
-        name: prevObj.name,
-        tasks: prevtask,
-      };
-      setDraged(newtask.length - 1);
-      setArrayofCards((prev) => [
-        ...prev.slice(0, i),
-        newObj,
-        preNewObj,
-        ...prev.slice(i + 2),
-      ]);
+      setArrayofCards(changeArray(arrayOfCards, preNewObj, newObj, i, board));
     }
+  };
+
+  const dragEnd = () => {
+    setIsDrag(false);
+    setBoard('');
+    setDraged('');
   };
   return (
     <div
       className="card"
-      onDragLeave={LeaveCard}
-      onDragEnter={() => addCard(cardIndex)}
+      onDragEnter={(e) => addCard(e, cardIndex)}
+      onDragStart={(e) => dragCard(e.target, cardIndex)}
+      onDragOver={(e) => e.preventDefault()}
       draggable="true"
     >
       <div className="cardTitle">
@@ -151,11 +111,10 @@ export function Card(props) {
           key={element}
           className="task"
           draggable="true"
-          onDragStart={(e) => dragStart(e, index, cardIndex)}
-          onDragEnd={dragEnd}
+          onDragStart={(e) => dragStart(e.target, index, cardIndex)}
           onDragOver={(e) => dragOver(e, index)}
-          onDrop={(e) => dragStop(e, index)}
           onDragLeave={dragLeave}
+          onDrop={dragEnd}
         >
           {element}
         </div>

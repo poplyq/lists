@@ -4,11 +4,12 @@ import { Aside } from './Aside';
 import { Cards } from '../Cards/Cards';
 import './desk.css';
 import { cardsContext } from '../Desk/cardsContext';
-
+let bbb = 0
 export const Desk = () => {
+  console.log('bbbb' + bbb++);
   const [dragElement, setDraged] = useState('');
   const [board, setBoard] = useState('');
-
+  const [dragClass, setDragClass] = useState ('')
   const [arrayOfCards, setArrayofCards] = useState([
     {
       index: 0,
@@ -80,6 +81,8 @@ export const Desk = () => {
           setDraged,
           board,
           setBoard,
+          dragClass,
+           setDragClass,
         }}
       >
         <NavBar />
