@@ -1,3 +1,19 @@
+
+its not usual toDO app)
+In posts u can add #hashtags, the sort post using the collection of hashtags in search button or u can open the post and search all the posts with the current hashtag. All posts are saving in local storage , thats why reload the app keep them in safety.
+
+Link on deploy : https://poplyq-notes-app.netlify.app/
+
+
+
+<img width="1171" alt="Снимок экрана 2023-04-29 в 14 23 52" src="https://user-images.githubusercontent.com/101501073/235300099-ecaf911d-2a63-4a8b-98d7-1f130a8ed242.png">
+
+<img width="1181" alt="Снимок экрана 2023-04-29 в 14 24 56" src="https://user-images.githubusercontent.com/101501073/235300102-0dc98e27-560c-47e8-b1f7-bb2feb790765.png">
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
