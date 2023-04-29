@@ -1,14 +1,15 @@
 
-its not usual toDO app)
-In posts u can add #hashtags, the sort post using the collection of hashtags in search button or u can open the post and search all the posts with the current hashtag. All posts are saving in local storage , thats why reload the app keep them in safety.
+The app in process of develompment
+implemented at the moment: Auntithication with firebase(test), add cards, add tasks in cards, Drag and Drop(only desktop) all the cards and its elements
+Comming soon : Self server with authbase on MySQL, account saviang cards, implementation different desks
 
-Link on deploy : https://poplyq-notes-app.netlify.app/
+Link on deploy : https://poplyq-lists.netlify.app
+
+<img width="1435" alt="Снимок экрана 2023-04-30 в 00 00 14" src="https://user-images.githubusercontent.com/101501073/235324144-e2483d22-955e-45e5-9325-bb9d177787b1.png">
 
 
+<img width="1440" alt="Снимок экрана 2023-04-30 в 00 00 42" src="https://user-images.githubusercontent.com/101501073/235324152-91f3ab6f-e82d-4c1f-9599-1a92d44728ea.png">
 
-<img width="1171" alt="Снимок экрана 2023-04-29 в 14 23 52" src="https://user-images.githubusercontent.com/101501073/235300099-ecaf911d-2a63-4a8b-98d7-1f130a8ed242.png">
-
-<img width="1181" alt="Снимок экрана 2023-04-29 в 14 24 56" src="https://user-images.githubusercontent.com/101501073/235300102-0dc98e27-560c-47e8-b1f7-bb2feb790765.png">
 
 
 
